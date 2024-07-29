@@ -2,21 +2,19 @@
 
 log_file="/tmp/easy_effects_install.log"
 
-# Function to install Easy Effects via Snap
+# Function to install Easy Effects via apt
 install_easy_effects() {
-    echo "Installing Easy Effects via Snap..." | tee -a "$log_file"
+    echo "Installing Easy Effects via apt..." | tee -a "$log_file"
 
-    # Ensure Snap is installed
-    if ! command -v snap &> /dev/null; then
-        echo "Snap is not installed. Please install Snap first." | tee -a "$log_file"
-        exit 1
-    fi
+    # Update package list
+    echo "Updating package list..." | tee -a "$log_file"
+    sudo apt update | tee -a "$log_file"
 
     # Install Easy Effects
-    echo "Running Snap install command for Easy Effects..." | tee -a "$log_file"
-    sudo snap install easy-effects | tee -a "$log_file"
+    echo "Running apt install command for Easy Effects..." | tee -a "$log_file"
+    sudo apt install -y easyeffects | tee -a "$log_file"
     if [ $? -ne 0 ]; then
-        echo "Snap installation failed. Please check the log for details." | tee -a "$log_file"
+        echo "apt installation failed. Please check the log for details." | tee -a "$log_file"
         exit 1
     fi
 
@@ -29,7 +27,7 @@ install_easy_effects
 echo -e "Creating configuration directory...\n" | tee -a "$log_file"
 
 # Define config directory and file
-config_dir=~/snap/easy-effects/current/.config/easyeffects/output
+config_dir=~/.config/easyeffects/output
 config_file="$config_dir/fw16-easy-effects.json"
 
 # Create config directory if it doesn't exist
@@ -56,7 +54,7 @@ pkill easyeffects || true
 echo -e "Starting Easy Effects...\n" | tee -a "$log_file"
 
 # Start Easy Effects
-nohup snap run easy-effects &>/dev/null &
+nohup easyeffects &>/dev/null &
 
 echo -e "Easy Effects has been started.\n" | tee -a "$log_file"
 echo -e "Please open Easy Effects and load the 'fw16-easy-effects' profile manually.\n" | tee -a "$log_file"
