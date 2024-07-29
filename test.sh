@@ -11,7 +11,7 @@ install_easy_effects() {
         echo "Flatpak is not installed. Please install Flatpak first." | tee -a "$log_file"
         exit 1
     fi
-clear
+    clear
 
     # Ensure Flathub is up-to-date
     echo "Updating Flatpak appstream data..." | tee -a "$log_file"
@@ -24,29 +24,27 @@ clear
         echo "Flatpak installation failed. Please check the log for details." | tee -a "$log_file"
         exit 1
     fi
-clear
+    clear
     echo "Easy Effects installation completed." | tee -a "$log_file"
 }
 
 # Install Easy Effects
 install_easy_effects
 
-
 echo -e "Creating configuration directory...\n" | tee -a "$log_file"
 clear
 
 # Define config directory and file
 config_dir=~/.var/app/com.github.wwmm.easyeffects/config/easyeffects/output
-config_file="$config_dir/fw16-easy-effects.json"
+config_file="$config_dir/fw13-easy-effects.json"
 
 # Create config directory if it doesn't exist
 mkdir -p "$config_dir"
 
-
 echo -e "Downloading the configuration file...\n" | tee -a "$log_file"
 clear
 # Download the configuration file
-curl -o "$config_file" https://raw.githubusercontent.com/FrameworkComputer/linux-docs/main/easy-effects/fw16-easy-effects.json | tee -a "$log_file"
+curl -o "$config_file" https://raw.githubusercontent.com/FrameworkComputer/linux-docs/main/easy-effects/fw13-easy-effects.json | tee -a "$log_file"
 
 # Check if the downloaded file is empty
 if [ ! -s "$config_file" ]; then
@@ -54,21 +52,17 @@ if [ ! -s "$config_file" ]; then
     exit 1
 fi
 
-
 echo -e "Configuration file downloaded to $config_file\n" | tee -a "$log_file"
-
 
 echo -e "Stopping any running Easy Effects processes...\n" | tee -a "$log_file"
 
 # Kill existing Easy Effects process if running
 pkill easyeffects || true
 
-
 echo -e "Starting Easy Effects...\n" | tee -a "$log_file"
 clear
 # Start Easy Effects
 nohup flatpak run com.github.wwmm.easyeffects &>/dev/null &
 
-
 echo -e "Easy Effects has been started.\n" | tee -a "$log_file"
-echo -e "Please open Easy Effects and load the 'fw16-easy-effects' profile manually.\n" | tee -a "$log_file"
+echo -e "Please open Easy Effects and load the 'fw13-easy-effects' profile manually.\n" | tee -a "$log_file"
