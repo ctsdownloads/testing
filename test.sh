@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install dependencies
-sudo systemctl stop power-profiles-daemon && sudo systemctl disable power-profiles-daemon && sudo systemctl mask power-profiles-daemon && sudo dnf install -y python3-gobject python3-cairo gobject-introspection gtk3 libappindicator-gtk3 tuned
+sudo dnf install -y python3-gobject python3-cairo gobject-introspection gtk3 libappindicator-gtk3 tuned
 # Create directory for the script
 mkdir -p ~/.local/bin
 
