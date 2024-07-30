@@ -51,7 +51,7 @@ fi
 mkdir -p ~/.local/bin
 
 # Create the Python script
-cat << EOF > ~/.local/bin/tuned_indicator.py
+cat << EOF > /home/$USER/.local/bin/tuned_indicator.py
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
@@ -250,7 +250,7 @@ if __name__ == "__main__":
 EOF
 
 # Make the script executable
-chmod +x ~/.local/bin/tuned_indicator.py
+chmod +x /home/$USER/.local/bin/tuned_indicator.py
 
 # Create autostart desktop entry
 mkdir -p ~/.config/autostart
