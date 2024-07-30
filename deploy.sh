@@ -15,8 +15,8 @@ sudo cp profiles/intel-best_performance_mode/tuned.conf /etc/tuned/intel-best_pe
 sudo cp profiles/intel-best_power_efficiency_mode/tuned.conf /etc/tuned/intel-best_power_efficiency_mode/tuned.conf
 
 # Reinstall and restart Tuned to catch the profiles
-# sudo dnf reinstall tuned -y && 
-sudo systemctl restart tuned
+# Found without both reinstall and restart, it will not activate correctly 
+sudo dnf reinstall tuned -y && sudo systemctl restart tuned
 
 # Activate a specific profile (choose one to activate initially, e.g., best performance mode)
 tuned-adm profile intel-best_performance_mode
