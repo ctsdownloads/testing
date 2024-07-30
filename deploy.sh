@@ -15,5 +15,5 @@ sudo cp profiles/intel-best_performance_mode/tuned.conf /etc/tuned/intel-best_pe
 sudo cp profiles/intel-best_power_efficiency_mode/tuned.conf /etc/tuned/intel-best_power_efficiency_mode/tuned.conf
 
 # Reinstall (for Intel settings to show up) enable and start the tuned service 
-sudo reinstall tuned -y
+sudo dnf reinstall tuned -y
 sudo systemctl enable --now tuned
