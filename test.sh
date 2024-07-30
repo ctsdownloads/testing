@@ -5,11 +5,9 @@ sudo systemctl stop power-profiles-daemon && sudo systemctl disable power-profil
 cd pkg.OPT.EPPprofile-1.05.240206.1-x86_64 && curl -o deploy.sh https://raw.githubusercontent.com/ctsdownloads/testing/main/deploy.sh && sudo bash deploy.sh && sleep 2 && sudo dnf install -y python3-gobject python3-cairo gobject-introspection gtk3 libappindicator-gtk3
 
 # Create directory for the script
-echo "Create directory for the script"
 mkdir -p ~/.local/bin
 
 # Create the Python script
-echo "Create the Python script"
 cat << EOF > ~/.local/bin/tuned_indicator.py
 import gi
 gi.require_version('Gtk', '3.0')
