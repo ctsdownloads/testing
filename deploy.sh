@@ -18,7 +18,4 @@ sudo cp profiles/intel-best_power_efficiency_mode/tuned.conf /etc/tuned/intel-be
 # Found without both reinstall and restart, it will not activate correctly 
 sudo dnf reinstall tuned -y && sudo systemctl restart tuned
 
-# Activate a specific profile (choose one to activate initially, e.g., best performance mode)
-tuned-adm profile intel-best_performance_mode
-
 echo "Profiles deployed."
