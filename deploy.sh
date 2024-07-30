@@ -20,3 +20,5 @@ sudo systemctl enable --now tuned
 
 # Activate a specific profile (choose one to activate initially, e.g., best performance mode)
 tuned-adm profile intel-best_performance_mode
+
+echo "Profile set to profile intel-best_performance_mode, if you need better battery life, switch to intel-best_power_efficiency_mode."
