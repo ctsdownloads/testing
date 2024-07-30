@@ -28,7 +28,7 @@ echo -e "Creating configuration directory...\n" | tee -a "$log_file"
 
 # Define config directory and file
 config_dir=~/.config/easyeffects/output
-config_file="$config_dir/fw16-easy-effects.json"
+config_file="$config_dir/fw13-easy-effects.json"
 
 # Create config directory if it doesn't exist
 mkdir -p "$config_dir"
@@ -36,7 +36,7 @@ mkdir -p "$config_dir"
 echo -e "Downloading the configuration file...\n" | tee -a "$log_file"
 
 # Download the configuration file
-curl -o "$config_file" https://raw.githubusercontent.com/FrameworkComputer/linux-docs/main/easy-effects/fw16-easy-effects.json | tee -a "$log_file"
+curl -o "$config_file" https://raw.githubusercontent.com/FrameworkComputer/linux-docs/main/easy-effects/fw13-easy-effects.json | tee -a "$log_file"
 
 # Check if the downloaded file is empty
 if [ ! -s "$config_file" ]; then
@@ -57,4 +57,4 @@ echo -e "Starting Easy Effects...\n" | tee -a "$log_file"
 nohup easyeffects &>/dev/null &
 
 echo -e "Easy Effects has been started.\n" | tee -a "$log_file"
-echo -e "Please open Easy Effects and load the 'fw16-easy-effects' profile manually.\n" | tee -a "$log_file"
+echo -e "Please open Easy Effects and load the 'fw13-easy-effects' profile manually.\n" | tee -a "$log_file"
