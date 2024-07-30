@@ -204,10 +204,6 @@ if __name__ == "__main__":
     except Exception as e:
         logging.error(f"Error initializing the TunedIndicator: {e}")
 
-
-
-
-
 EOF
 
 # Make the script executable
