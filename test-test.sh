@@ -1,14 +1,6 @@
 #!/bin/bash
 
-# IMPORTANT: Create in your file manager or mkdir tuned-install, download 814712_MTL_TuneD_Static_Profile_RN_Rev1p2.zip into that directory first.
-
-# Change to working directory
-if [ -d "tuned-install" ]; then
-    cd tuned-install
-else
-    echo "Directory 'tuned-install' does not exist. Exiting."
-    exit 1
-fi
+# IMPORTANT: Ensure you are in the tuned-install directory and have downloaded 814712_MTL_TuneD_Static_Profile_RN_Rev1p2.zip into this directory first.
 
 # Stop and disable power-profiles-daemon
 sudo systemctl stop power-profiles-daemon && \
